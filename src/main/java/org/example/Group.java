@@ -11,6 +11,10 @@ public class Group {
         this.students = new ArrayList<>();
     }
 
+    public ArrayList<Student> returnStudents() {
+        return students;
+    }
+
     public void addStudent(Student student) {
         students.add(student);
     }

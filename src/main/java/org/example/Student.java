@@ -17,12 +17,20 @@ public class Student {
         return fullName;
     }
 
+    public Map<String, ArrayList<Integer>> returnSubject() {
+        return marksBySubject;
+    }
+
     public void addSubject(String subjectName) {
         marksBySubject.put(subjectName, new ArrayList<>());
     }
 
     public void deleteSubject(String subjectName) {
         marksBySubject.remove(subjectName);
+    }
+
+    public ArrayList<Integer> returnMark(String subjectName) {
+        return marksBySubject.get(subjectName);
     }
 
     public void addMark(String subjectName, int mark) {
@@ -42,3 +50,28 @@ public class Student {
         }
     }
 }
+// public class Student {
+//  private String name;
+//  private Map<String, Integer> grades;
+//
+//  public Student(String name) {
+//    this.name = name;
+//    this.grades = new HashMap<>();
+//  }
+//
+//  public String getName() {
+//    return name;
+//  }
+//
+//  public void addSubject(String subjectName) {
+//    grades.put(subjectName, 0);
+//  }
+//
+//  public void removeSubject(String subjectName) {
+//    grades.remove(subjectName);
+//  }
+//
+//  public void changeGrade(String subjectName, int grade) {
+//    grades.put(subjectName, grade);
+//  }
+//}
