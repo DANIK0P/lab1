@@ -50,28 +50,3 @@ public class Student {
         }
     }
 }
-// public class Student {
-//  private String name;
-//  private Map<String, Integer> grades;
-//
-//  public Student(String name) {
-//    this.name = name;
-//    this.grades = new HashMap<>();
-//  }
-//
-//  public String getName() {
-//    return name;
-//  }
-//
-//  public void addSubject(String subjectName) {
-//    grades.put(subjectName, 0);
-//  }
-//
-//  public void removeSubject(String subjectName) {
-//    grades.remove(subjectName);
-//  }
-//
-//  public void changeGrade(String subjectName, int grade) {
-//    grades.put(subjectName, grade);
-//  }
-//}
