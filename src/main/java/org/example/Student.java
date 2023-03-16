@@ -38,32 +38,7 @@ public class Student {
         if (marks.size() > 0) {
             marks.set(marks.size() - 1, mark);
         } else {
-            throw new IllegalStateException("There are no marks for subject " + subjectName);
+            throw new IllegalStateException("Нет оценок по этому предмету: " + subjectName);
         }
     }
 }
-//public class Student {
-//  private String name;
-//  private Map<String, Integer> grades;
-//
-//  public Student(String name) {
-//    this.name = name;
-//    this.grades = new HashMap<>();
-//  }
-//
-//  public String getName() {
-//    return name;
-//  }
-//
-//  public void addSubject(String subjectName) {
-//    grades.put(subjectName, 0);
-//  }
-//
-//  public void removeSubject(String subjectName) {
-//    grades.remove(subjectName);
-//  }
-//
-//  public void changeGrade(String subjectName, int grade) {
-//    grades.put(subjectName, grade);
-//  }
-//}

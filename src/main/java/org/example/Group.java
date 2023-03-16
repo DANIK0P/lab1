@@ -16,13 +16,10 @@ public class Group {
     }
 
     public void deleteStudent(String fullName) {
-//        Student stu=new Student( "john smith");
-        students.removeIf(student ->student.getFullName().equals(fullName));
-//        students.removeIf(stu -> stu.equals(fullName));
+        students.removeIf(student -> student.getFullName().equals(fullName));
     }
 
     public void addSubject(String subject) {
-
         students.forEach(student -> student.addSubject(subject));
     }
 
@@ -31,70 +28,32 @@ public class Group {
     }
 
     public void addMark(String fullName, String subjectName, int mark) {
-        students.stream()
-                .filter(student -> student.getFullName().equals(fullName))
-                .findFirst()
-                .ifPresent(student -> student.addMark(subjectName, mark));
+        for (Student student : students) {
+            if (student.getFullName().equals(fullName)) {
+                student.addMark(subjectName, mark);
+                break;
+            }
+        }
     }
 
     public void deleteMark(String fullName, String subjectName) {
-        students.stream()
-                .filter(student -> student.getFullName().equals(fullName))
-                .findFirst()
-                .ifPresent(student -> student.deleteMark(subjectName));
+        for (Student student : students) {
+            if (student.getFullName().equals(fullName)) {
+                student.deleteMark(subjectName);
+                break;
+            }
+        }
     }
 
     public void updateMark(String fullName, String subjectName, int mark) {
-        students.stream()
-                .filter(student -> student.getFullName().equals(fullName))
-                .findFirst()
-                .ifPresent(student -> student.updateMark(subjectName, mark));
+        for (Student student : students) {
+            if (student.getFullName().equals(fullName)) {
+                student.updateMark(subjectName, mark);
+                break;
+            }
+        }
     }
-
-
 }
-//public class School {
-//  private int schoolNumber;
-//  private List<Student> students;
-//
-//  public School(int schoolNumber) {
-//    this.schoolNumber = schoolNumber;
-//    this.students = new ArrayList<>();
-//  }
-//
-//  public void addStudent(Student student) {
-//    students.add(student);
-//  }
-//
-//  public void removeStudent(String name) {
-//    for (Student student : students) {
-//      if (student.getName().equals(name)) {
-//        students.remove(student);
-//        break;
-//      }
-//    }
-//  }
-//
-//  public void addSubject(String subjectName) {
-//    for (Student student : students) {
-//      student.addSubject(subjectName);
-//    }
-//  }
-//
-//  public void removeSubject(String subjectName) {
-//    for (Student student : students) {
-//      student.removeSubject(subjectName);
-//    }
-//  }
-//
-//  public void changeGrade(String studentName, String subjectName, int grade) {
-//    for (Student student : students) {
-//      if (student.getName().equals(studentName)) {
-//        student.changeGrade(subjectName, grade);
-//        break;
-//      }
-//    }
-//  }
-//}
+
 
 
