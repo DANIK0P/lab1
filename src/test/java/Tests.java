@@ -13,7 +13,7 @@ public class Tests {
     @Test
     public void testAddStudent() {
         Group group = new Group(1);
-        Student student = new Student("Иванов Иван Иванович");
+        Student student = new Student("John Smith Li");
         group.addStudent(student);
         assertEquals(group.returnStudents().size(), 1);
         assertTrue(group.returnStudents().contains(student));
@@ -55,15 +55,15 @@ public class Tests {
     @Test
     public void testDeleteSubject() {
         Group group = new Group(1);
-        Student student1 = new Student("Иванов Иван Иванович");
+        Student student1 = new Student("John Smith Li");
         Student student2 = new Student("Петров Петр Петрович");
         group.addStudent(student1);
         group.addStudent(student2);
         student1.addSubject("Математика");
-        student2.addSubject("Информатика");
+        student2.addSubject("Программирование");
         group.deleteSubject("Математика");
         assertFalse(student1.returnSubject().containsKey("Математика"));
-        assertTrue(student2.returnSubject().containsKey("Информатика"));
+        assertTrue(student2.returnSubject().containsKey("Программирование"));
     }
 
 
@@ -73,11 +73,11 @@ public class Tests {
     @Test
     public void testAddMark() {
         Group group = new Group(1);
-        Student student = new Student("Иванов Иван Иванович");
+        Student student = new Student("John Smith Li");
         group.addStudent(student);
         group.addSubject("Математика");
-        group.addMark("Иванов Иван Иванович", "Математика", 5);
-        assertEquals(Integer.valueOf(5),student.returnMark("Математика").get(0));
+        group.addMark("John Smith Li", "Математика", 5);
+        assertEquals(5, student.returnMark("Математика").get(0));
     }
 
 
@@ -87,11 +87,11 @@ public class Tests {
     @Test
     public void testDeleteMark() {
         Group group = new Group(1);
-        Student student = new Student("Иванов Иван Иванович");
+        Student student = new Student("John Smith Li");
         group.addStudent(student);
         group.addSubject("Математика");
-        group.addMark("Иванов Иван Иванович", "Математика", 5);
-        group.deleteMark("Иванов Иван Иванович", "Математика");
+        group.addMark("John Smith Li", "Математика", 5);
+        group.deleteMark("John Smith Li", "Математика");
         assertTrue(student.returnMark("Математика").isEmpty());
     }
 
@@ -102,11 +102,11 @@ public class Tests {
     @Test
     public void testUpdateMark() {
         Group group = new Group(1);
-        Student student = new Student("Иванов Иван Иванович");
+        Student student = new Student("John Smith Li");
         group.addStudent(student);
         group.addSubject("Математика");
-        group.addMark("Иванов Иван Иванович", "Математика", 4);
-        group.updateMark("Иванов Иван Иванович", "Математика", 5);
-        assertEquals(student.returnMark("Математика").get(0), Integer.valueOf(5));
+        group.addMark("John Smith Li", "Математика", 4);
+        group.updateMark("John Smith Li", "Математика", 5);
+        assertEquals(student.returnMark("Математика").get(0), 5);
     }
 }
